@@ -1,0 +1,46 @@
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\bin\Release\net6.0-windows\WpfApp1.exe
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\bin\Release\net6.0-windows\WpfApp1.deps.json
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\bin\Release\net6.0-windows\WpfApp1.runtimeconfig.json
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\bin\Release\net6.0-windows\WpfApp1.dll
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\bin\Release\net6.0-windows\WpfApp1.pdb
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\bin\Release\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.csproj.AssemblyReference.cache
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\MainWindow.g.cs
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\App.g.cs
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1_MarkupCompile.cache
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1_MarkupCompile.lref
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\MainWindow.baml
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.g.resources
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.AssemblyInfoInputs.cache
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.AssemblyInfo.cs
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.csproj.CoreCompileInputs.cache
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.csproj.CopyComplete
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.dll
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\refint\WpfApp1.dll
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.pdb
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.genruntimeconfig.cache
+C:\Users\Bettina Hallinger\Desktop\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\ref\WpfApp1.dll
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\bin\Release\net6.0-windows\WpfApp1.exe
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\bin\Release\net6.0-windows\WpfApp1.deps.json
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\bin\Release\net6.0-windows\WpfApp1.runtimeconfig.json
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\bin\Release\net6.0-windows\WpfApp1.dll
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\bin\Release\net6.0-windows\WpfApp1.pdb
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\bin\Release\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.csproj.AssemblyReference.cache
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\MainWindow.g.cs
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\App.g.cs
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1_MarkupCompile.cache
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1_MarkupCompile.lref
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\MainWindow.baml
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.g.resources
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.AssemblyInfoInputs.cache
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.AssemblyInfo.cs
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.csproj.CoreCompileInputs.cache
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.csproj.CopyComplete
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.dll
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\refint\WpfApp1.dll
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.pdb
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\WpfApp1.genruntimeconfig.cache
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\GeburtstagsAPI\WpfApp1\obj\Release\net6.0-windows\ref\WpfApp1.dll

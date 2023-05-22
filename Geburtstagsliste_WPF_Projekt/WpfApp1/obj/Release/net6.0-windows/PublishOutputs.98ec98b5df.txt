@@ -1,0 +1,6 @@
+C:\Users\Bettina Hallinger\Desktop\Geburtstagsliste_WPF\WpfApp1.exe
+C:\Users\Bettina Hallinger\Desktop\Geburtstagsliste_WPF\WpfApp1.dll
+C:\Users\Bettina Hallinger\Desktop\Geburtstagsliste_WPF\WpfApp1.deps.json
+C:\Users\Bettina Hallinger\Desktop\Geburtstagsliste_WPF\WpfApp1.runtimeconfig.json
+C:\Users\Bettina Hallinger\Desktop\Geburtstagsliste_WPF\WpfApp1.pdb
+C:\Users\Bettina Hallinger\Desktop\Geburtstagsliste_WPF\Newtonsoft.Json.dll
