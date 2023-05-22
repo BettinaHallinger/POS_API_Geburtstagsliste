@@ -17,6 +17,12 @@ public interface PersonRepository extends MongoRepository<Person, String> {
 
 	Optional<List<Person>>findByNachname(@Param("nachname") String nachname);
 
+	Optional<List<Person>>findByTag(@Param("nachname") int tag);
+
+	Optional<List<Person>>findByMonat(@Param("nachname") int monat);
+
+	Optional<List<Person>>findByJahr(@Param("nachname") int jahr);
+
 	Optional<List<Person>>findByGeburtstag(@Param("geburtstag") String geburtstag);
 
 	Optional<List<Person>>findByAbteilung(@Param("abteilung") String abteilung);
