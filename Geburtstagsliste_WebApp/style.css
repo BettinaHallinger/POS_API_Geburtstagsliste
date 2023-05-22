@@ -1,0 +1,211 @@
+body{
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    font-family: calibri light, arial;
+    flex-direction: column;
+}
+
+h1{
+    font-family: century gothic, calibri;
+    font-size: 70px;
+    margin-bottom: 0;
+}
+
+div{
+    margin: 3rem;
+}
+
+#tbl{
+    position: relative;
+    overflow-y: scroll; 
+    max-height: 60vh;
+}
+
+#tbl th{
+    font-size: 120%;
+    text-align: left;
+}
+
+#tbl td{
+    width: 100px;
+}
+
+.bttnrm{
+    background-color: transparent;
+    border: none;
+
+}
+
+.imgrm{
+    width: 50%;
+}
+
+.imgrm:hover{
+    cursor: pointer;
+    color: white;
+}
+
+input{
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em;
+    margin: 0.4em;
+    height: 1.5em;
+}
+
+.filter{
+    grid-column: 2 / -1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.filterRow{
+    margin: 0.5em;;
+    display: flex;
+    justify-content: space-between;
+}
+
+.b1{
+    border-radius: 25px;
+    border: none;
+    padding: 0.7em;
+    margin: 0.4em;
+    background: linear-gradient(70deg, #ff00d9, #66008b);
+    color: #ffffff;
+    font-family: century gothic, arial;
+    height: max-content;
+    font-size: medium;
+    width: 10em;
+    transition-property: all;
+    transition-duration: 1s;
+
+}
+
+.b1:hover{
+    cursor: pointer;
+    background: linear-gradient(70deg, #66008b, #bc03ff);
+    color: rgb(225, 225, 225);
+}
+
+.addPerson {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Verwendet die korrekte Syntax für die Grid-Template-Columns */
+    grid-gap: 0.5em;
+    margin: 1em 0 2em 0;
+}
+
+.lbl {
+    grid-column: 1 / 2;
+    align-self: center;
+    padding-right: 0.5em;
+}
+
+.big {
+    grid-column: 2 / 3;
+}
+
+.num {
+    grid-row: 4; /* Geändert zu grid-row: 4, um es unter den anderen Elementen zu positionieren */
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+}
+
+#tag, #monat, #jahr, #findTag, #findMonat, #findJahr {
+    width: 3em;
+}
+
+.buttons {
+    grid-column: 1 / 3;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 1em;
+}
+
+.mainContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: start;
+    width: 100%;
+    margin: 0;
+}
+
+.container1{
+    margin: 0 0 0 7em;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.container2 {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    margin: 0 7em 0 0;
+}
+
+h3{
+    font-family: century gothic, calibri;
+}
+
+th{
+    max-width: 130px;
+}
+
+@media only screen and (max-width: 1000px){
+    .mainContainer{
+        flex-direction: column;
+    }
+
+    .container2{
+        width: 100%;
+        margin: 0;
+        flex-direction: row;
+        align-items: start;
+        justify-content: space-around;
+    }
+}
+
+@media only screen and (max-width: 740px){
+
+    .container1{
+        margin: 0;
+        align-items: center;
+    }
+
+    .container2{
+        width: 100%;
+        margin: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    th{
+        min-width: 110px;
+    }
+
+    h1{
+        font-size: 300%;
+    }
+
+    #tbl{
+        margin: 2em 0 0 0;
+    }
+
+    .imgrm{
+        width: 100%;
+    }
+}

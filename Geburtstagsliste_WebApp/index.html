@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geburtstagsliste</title>
+    <link rel="icon" type="image/x-icon" href="./icon.png">
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+
+    <div class="mainContainer">
+
+        <div class="container1">
+            <h1>Geburtstagsliste</h1>
+            <div id="tbl"></div>
+        </div>
+
+        <div class="container2">
+
+            <div class="addPerson">
+                <div class="buttons">
+                    <h3>Geburtstag hinzufügen</h3>
+                </div>
+
+                <label class="lbl">Vorname:</label>
+                <input type="text" name="vorname" class="big" id="vorname" placeholder="Vorname">
+
+                <label class="lbl">Nachname:</label>
+                <input type="text" name="nachname" class="big" id="nachname" placeholder="Nachname">
+
+                <label class="lbl">Geburtstag:</label>
+                <div class="num">
+                    <input type="text" name="tag" id="tag" placeholder="Tag" class="numInput">
+                    <input type="text" name="monat" id="monat" placeholder="Monat" class="numInput">
+                    <input type="text" name="jahr" id="jahr" placeholder="Jahr" class="numInput">
+                </div>
+                <div class="buttons">
+                    <button class="b1" id="addP" type="button" onclick="addPerson()"><b>Hinzufügen</b></button>
+                </div>
+            </div>
+
+
+            <div class="addPerson">
+
+                <div class="buttons">
+                    <h3>Geburtstag suchen</h3>
+                </div>
+
+                <label class="lbl">Vorname:</label>
+                <input type="text" name="vorname" class="big" id="findVorname" placeholder="Vorname">
+
+                <label class="lbl">Nachname:</label>
+                <input type="text" name="nachname" class="big" id="findNachname" placeholder="Nachname">
+
+                <label class="lbl">Geburtstag:</label>
+                <div class="num">
+                    <input type="text" name="tag" id="findTag" placeholder="Tag" class="numInput">
+                    <input type="text" name="monat" id="findMonat" placeholder="Monat" class="numInput">
+                    <input type="text" name="jahr" id="findJahr" placeholder="Jahr" class="numInput">
+                </div>
+
+                <label class="lbl">Alter:</label>
+                <input type="text" name="alter" class="big" id="findAlter" placeholder="25">
+
+                <div class="buttons">
+                    <button class="b1" id="addP" type="button" onclick="find()"><b>Suchen</b></button>
+                    <button class="b1" id="addP" type="button" onclick="load()"><b>Reset</b></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js.js"></script>
+</body>
+
+
+
+
+</html>
