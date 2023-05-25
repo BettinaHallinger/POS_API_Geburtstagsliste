@@ -12,11 +12,14 @@ Der genaue Aufbau des Projekts sowie Probleme und Lösungswege werden in der fol
 ## Klassendiagramm Spring REST-Server
 
 
+
 ![](https://lh3.googleusercontent.com/7EyI_9bLYl7F81oYu3RGHXq6PcqlXsyTNDRTA97wVx-MCM8gfgPx5Jltuj3gcNbqUdB6Y4MfHX0P1Dh6WgZzE-kx7bGYmtKHiAdHeK78_6UTskM4KCjtMxUDhrPBGlpUXxGZrVxxJLgHLfD3pTlGE6Bes_ZZCoSg5VM9g_WgBWbKjZHEz4YcRjfcao8rfPyL0bGwT8cwjt2nWI381k2Jt125qx269VTYbw9ptK_FlLbMSwv1WbvIWIWTAiRcHXR_fJMD5issU4kKhj_-TRL9lRbsBL3fZuIcHAfU3bvaMPfe-DWc200QQ4p8MXX9QZpiSbcJDwhGUA25mI0fu1oXeyXLwFPoNfl2nxkYLo98MsnEqJ0JdNfGA3B9_2Ka2R7gawyc29J6VMktaYx6VHkAb0Lmyoq5PR2JtHyIsqn72WrtOMUhrht7D0WLjLYCd5u0cq0KSF7qgJwLJgpyhOB4OqHMK3qyVym3dXA5ZXaHbtx0oHJtx43Sh8eil4C1sHw6p0VrFkRdvLDpZ1mZigGCxhjPgEaJafkr9jFnm-owmcESFaw_x7yIy3ZB-I58nm2nnjTM4UaAMYB1DO-8RoJ8ybpDj1zFLsvUQa6f63HjWGiqMSoVmsEA4b8i2CvSLLoDkwSg9T5UBfLtSKErOUqmLgJjA1MLJQcknXXEo4Q1xu32KRi8Tk5Tjd3XpCJNrIkH-1mg8QwcbPf0xR4BTMuepzTUKuG2sm4zD1O9jIDn0DbgxWdhxqry7ibSoOVcXYug8RTrSR6fQ1kCVIFTGIEua_JdsSK68Sr8hszqBMsQsaFSER7CfnwIpkVkDz5cF2e99na8D8QrKRrZbia-MWPr_p9oycg-q30pq8CXSFwNAIkZMvrM1eP5nRl0k4R85Asau7nphTOPH_WbFvWgd179KQ_A4Na8Bq6roRJ3E0WC3tah=w1459-h640-s-no?authuser=0)
 # Spring REST API
 Das Backend besteht aus einem Spring REST-Server, welcher die Verbindung zur MongoDB Atlas Datenbank herstellt. 
 Das Projekt besteht aus folgelnden Dateien:
 ![Projekt-Dateistruktur](https://lh3.googleusercontent.com/cnwCwtx6X1ZQAKeLG017Q2VwiPP6oCVWvwr7o3T95OH3jmESVPtAC5hTnNjktRVkIK5Gdt9c5fuGa5XTQpI6o5fx5z_40cD87ebOaZqMDGJ8vtFL7RtUopbSo0UaEzJH5roA7NqvaUow04JjYLQONBnyj7uf6s9wMeAOy1QrGgRbF5ktswBCizpZYNTnTotGJsC97Q1OsgWnEEHX4bKJ018yNXf2hJEuAhxY1Vg_4SX-G69R8UpnZEZQD6JDOweZtShlvHT8WGo3cDhB2fQyvYF1dS-rRnPiR3_lsekLicbEX96IrSWSIVG5776eVBkZAQeiBN5TPGKkqzu2ri_eKeibyQgBfSaVVSBeXnoljnbynWgmUG8qfEEJ1sToAWaxydat22y0cApr0iV0FJPjKNMD_DjN3LiC3H1SV6cLXgBeEeldcboPjPZfOS4eObR6Oq3e1mJaB0dRoueg5-nKYCCkgzzOBDr7pTi2Ybzo4cbMDkeT1xzVNyqjRi8z5Hv-9zPIk4OG4HDlVafuZrgkdCP9HJ9ki2bgw7sZmwo2JkXBMbVl2DTaIdMZfydofFxC8OsPW5d26ZUnK9tavvqpaudRPjIbgaLVTgSfTYGGZKp0iATRHRdYbn09kWlc5PTYSPRVpzt_VkEhFnf8Ddbo0o7oCu_PyfqCMwd7dZM9i-s1CjDTSUxqB_1J6kaAQ7RiyH8Glg8JvDbGfTDRjHKrx_ImJb3cOtHyAYmskI_3lX9Me89ZeuPQDL6GiF3qFal2FDph47lyl9USaOf-snRMDdvylDLQfQuOLE8en1jc4MVJUzR7x0ISBRu8e1M17f9ZbwCJEXc_ur2Bnir-GXGI16wol36RWEHDmrNqsa1aWwWmo78CIKgTi49hhaDrD02H0A1zBVFnigGlR6zmcFdBT1Wz2J4E0WhEq6-8txeRTDke=w532-h369-s-no?authuser=0)
+Die HTML-Page ist direkt in das Spring REST-Projekt integriert. Sie kann nach Starten des Servers mit "localhost:3001" im Browser aufgerufen werden.
+
 ## Verbindung zur Datenbank
 ### MongoDB Atlas
 Zuerst muss eine neue Collection "geburtstage" angelegegt werden. Anschließend wird ein neue Benutzer "user" erstellt, der die Berechtigungen read und write zugeteilt bekommt. Dies ist erforderlich, damit vom REST-Server aus auf die Datenbank zugegriffen werden darf. Im nächsten Schritt erfolgt der Zugriff über den REST-Server.
@@ -30,50 +33,48 @@ spring.data.mongodb.uri=mongodb+srv://user:IDszkWfqMmPNYihj@cluster0.gsuywxw.mon
 
 ### pom.xml
 Das Spring REST-Projekt verfügt über folgenden Dependencies:
-```java
-<dependencies>  
-   <dependency>  
-      <groupId>org.springframework.boot</groupId>  
-      <artifactId>spring-boot-starter-data-mongodb</artifactId>  
-   </dependency>  
-   <dependency>  
-      <groupId>org.springframework.boot</groupId>  
-      <artifactId>spring-boot-starter-web</artifactId>  
-   </dependency>  
-  
-   <dependency>  
-      <groupId>org.projectlombok</groupId>  
-      <artifactId>lombok</artifactId>  
-      <optional>true</optional>  
-   </dependency>  
-   <dependency>  
-      <groupId>org.springframework.boot</groupId>  
-      <artifactId>spring-boot-starter-test</artifactId>  
-      <scope>test</scope>  
-   </dependency>  
-   <dependency>  
-      <groupId>org.springframework.boot</groupId>  
-      <artifactId>spring-boot-starter-data-mongodb</artifactId>  
-   </dependency>  
-   <dependency>  
-      <groupId>org.springframework.boot</groupId>  
-      <artifactId>spring-boot-starter-data-rest</artifactId>  
-   </dependency>  
-   <dependency>  
-      <groupId>org.springframework.boot</groupId>  
-      <artifactId>spring-boot-starter-test</artifactId>  
-      <scope>test</scope>  
-   </dependency>  
-   <dependency>  
-      <groupId>jakarta.persistence</groupId>  
-      <artifactId>jakarta.persistence-api</artifactId>  
-      <version>2.2.3</version>  
-   </dependency>  
-   <dependency>  
-      <groupId>org.springframework.boot</groupId>  
-      <artifactId>spring-boot-starter-web</artifactId>  
-   </dependency>  
-</dependencies>
+```xml
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+			<version>2.2.3</version>
+		</dependency>
+	</dependencies>
 ```
 
 ### Person.java
@@ -106,7 +107,6 @@ private PersonService personService;
 private final PersonRepository repository;  
 PersonController(PersonRepository repository){ this.repository = repository; }
 ```
-
 **Eintrag in die Datenbank hinzufügen:**
 
 Hier wird eine neue Insanz der Klasse Person erstellt und zur Datenbank hinzugefügt. Tag, Monat und Jahr des Geburtstages werden hier als Integer-Werte übergeben. Nun wird direkt in der Funktion der String geburtstag aus den drei Integer zusammengesetzt (zur einfacheren und schöneren Ausgabe). Außerdem wird das Datum als LocalDate geparsed, um direkt das Alter der hinzugefügten Person zu berechnen. 
@@ -146,7 +146,6 @@ Person newPerson(@RequestBody Person newPerson) {
     return repository.save(newPerson);  
 }
 ```
-
 **Alle Einträge aus der Datenbank abfragen:**
 
 Hier werden alle Datenbankeinträge als JSON-Objekte zurückgegeben.
@@ -156,7 +155,6 @@ public @ResponseBody Iterable<Person> getAll() {
   return repository.findAll();  
 }}
 ```
-
 **Suche nach beliebigen Parametern:**
 
 Hier kann man Datenbankeinträge nach beliebigen Parametern filtern. Die Schwierigkeit hierbei war, dass man keine "findBy...()" Funktion verwenden konnte, wobei nach den mitgegebenen Parameter gesucht wird, da man hier nur nach einem Parameter suchen kann. Bei diesem Projekt würde die Suche nach einem einzelnen Parameter wenig Sinn machen, da man sich z.B. alle Personen anzeigen lassen will, die in einem bestimmten Monat in einem bestimmten Jahr Geburtstag haben. Deshalb war es notwendig, ein Query zu erstellen, wobei alle Parameter optional mitgegeben werden können. Dieser Teil des Projekts zwar sehr zeitaufwändig. Die Funktion find() ist mit sämtlichen anderen Klassen verbunden, die später noch erklärt werden.
@@ -171,7 +169,6 @@ public List<Person> find(@RequestParam("vorname") Optional<String> vorname,
     return personService.find(vorname, nachname, tag, monat, jahr, alter);  
 }
 ```
-
 **Eintrag löschen:**
 
 Ein Einträg kann gelöscht werden, indem die ID des Objekts mitgegeben wird. 
@@ -184,7 +181,7 @@ void deletePerson(@PathVariable String id) {
 
 ### PersonRepository.java (Interface)
 In dieser Klasse befindet sich lediglich das zuvor erwähnte Query, das nach den optionalen Parametern in der Datenbank sucht.
-Diese Query konvertiert alle Integer-Werte für Jahr, Monat und Tag zu Strings und durchsucht die Datenbank schließlich mit einer Regex (diese wird im @RequestParam mitgegeben).
+De query konvertiert oafoch olle Integer werte fia jahr, monat und tag zu string und duad donn mid ana regex (de wos im @RequestParam onegbn wird) suachn.
 ```java 
 @CrossOrigin  
 @RepositoryRestResource(collectionResourceRel = "geburtstage", path = "geburtstage")  
@@ -209,7 +206,9 @@ public interface PersonService {
 ```
 
 ### PersonServiceImpl.java
-Diese Klasse implementiert das Interface PersonService und überschreibt die Methode find(). Hier werden die optionalen Parameter übergeben und es wird überprüft, ob die jweiligen Felder belegt sind, ansonsten wird ein leerer String übergeben (in diesem Fall wird bei einer Regex immer "true" zurückgegeben).
+Diese Klasse implementiert das Interface PersonService und überschreibt die Methode find(). Hier werden die optionalen Parameter übergeben und es wird überprüft, ob die jweiligen Felder belegt sind, ansonsten wird ein leerer String übergeben.
+Des nimmt oafoch de Optional-Werte (de a leer sei kennan) und konvertierts fois gsetzt sand vo int zu string und fois leer sand setztes aus leeren string damit de regex quasi olle matched (weil "" aus regex is imma true)
+
 ```java
 @Service  
 public class PersonServiceImpl implements PersonService {  
@@ -385,6 +384,52 @@ function  deletePerson(id) {
 }
 ```
 
+**Daten bearbeiten**
+
+Mit einem PUT-Request, bei dem die ID des zu bearbeitenden Objekts übergeben wird, kann ein Datensatz bearbeitet werden. Wird auf den "Edit" Button neben dem gewünschten Objekt in der Tabelle geklickt, wird zuerst dieses Objekt aus der Datenbank geladen, um dessen Feldwerte zu lesen. Die Feldwerte werden anschließend in die fürs Hinzufügen vorgesehenen Felder eingefügt und der "Hinzufügen" Button ändert seine Funktion zu einem "Ändern" Button, der dann den PUT-Request an den Server schickt. Nach dieser Transaktion hat der Button wieder seine ursprüngliche Funktion "Hinzufügen".
+```javascript
+function  updatePerson(id) {
+	let  vorname  =  document.getElementById("vorname").value;
+	let  nachname  =  document.getElementById("nachname").value;
+	let  tag  =  document.getElementById("tag").value;
+	let  monat  =  document.getElementById("monat").value;
+	let  jahr  =  document.getElementById("jahr").value;
+
+	async  function  put(url  =  "", data  = {}) {
+		const  response  =  await  fetch(url, {
+		method:  "PUT",
+		mode:  "cors",
+		cache:  "no-cache",
+		credentials:  "same-origin",
+		Allow:  "PUT",
+		headers: {
+			"Content-Type":  "application/json",
+	},
+		redirect:  "follow",
+		referrerPolicy:  "no-referrer",
+		body:  JSON.stringify(data),
+	});
+		return  response.json();
+	}
+
+	put("http://localhost:3001/update/"  +  id, {
+		vorname:  vorname,
+		nachname:  nachname,
+		tag:  tag,
+		monat:  monat,
+		jahr:  jahr,
+		}).then((data) => {
+		console.log(data);
+	});
+
+	clearTextInput1();
+	document.getElementById("btnChange").innerHTML  =  "";
+	document.getElementById("btnChange").innerHTML  ='<button class="b1" id="addP" type="button" onclick="addPerson()"><b>Hinzufügen</b></button>';
+	setTimeout(20000);
+	load();
+}
+```
+
 **Daten filtern**
 
 Damit die Daten nach beliebigen Feldern gefiltert werden können, muss zuerst die richtige URL zusammengesetzt werden. Hierfür wird jedes Feld überprüft, ob es nicht leer ist. Wenn das der Fall ist, wird &feldname=feldwert hinzugefügt, bzw. wenn das Feld der erste übergebene Parameter ist, wird ?feldname=feldwert hinzugefügt. Dies wird bei allen Feldern geprüft und anschließend erhält man die URL, die dann mit einem GET-Request an den Server geschickt wird und die gefilterten Daten zurückgibt. 
@@ -480,7 +525,7 @@ private void appendData(dynamic list)
 
 **Daten zur Datenbank hinzufügen**
 
-Hierzu werden ähnlich wie bei JavaScript die Feldwerte entnommen, überprüft und anschließend mit einem POST-Request an den Server geschickt. 
+Hierzu werden ähnlich wie bei JavaScript die Feldwerte entnommen und anschließend mit einem POST-Request an den Server geschickt. Bei der Eingabe wird zuvor noch geprüft, ob alle Felder ausgefüllt sind und ob das Datum gültig ist. Ist dies nicht der Fall, wird eine Fehlermeldung ausgegeben und die Funktion wird abgebrochen.
 ```csharp
  private async void btnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -489,48 +534,39 @@ Hierzu werden ähnlich wie bei JavaScript die Feldwerte entnommen, überprüft u
                 MessageBox.Show("Bitte füllen Sie alle Felder aus!");
                 return;
             }
-            try
+
+            if (!checkDate(txtTag.Text, txtMonat.Text, txtJahr.Text))
             {
-                int tag = Convert.ToInt32(txtTag.Text);
-                int monat = Convert.ToInt32(txtMonat.Text);
-                int jahr = Convert.ToInt32(txtJahr.Text);
-                DateTime dateTime = DateTime.Parse(jahr + "-" + monat + "-" + tag);
-                if (jahr < 1800 || dateTime > DateTime.Now)
-                {
-                    MessageBox.Show("Bitte gültiges Datum eingeben!");
-                    return;
-                }
-            } catch(Exception ex)
-            {
-                MessageBox.Show("Bitte gültiges Datum eingeben!");
+                ClearInput();
                 return;
             }
-
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:3001/add");
-            httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            else
             {
-                string json = JsonSerializer.Serialize(new
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:3001/add");
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "POST";
+
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                 {
-                    vorname = txtVorname.Text,
-                    nachname = txtNachname.Text,
-                    tag = txtTag.Text,
-                    monat = txtMonat.Text, 
-                    jahr = txtJahr.Text
-                });
+                    string json = JsonSerializer.Serialize(new
+                    {
+                        vorname = txtVorname.Text,
+                        nachname = txtNachname.Text,
+                        tag = txtTag.Text,
+                        monat = txtMonat.Text,
+                        jahr = txtJahr.Text
+                    });
 
-                streamWriter.Write(json);
-            }
-
-            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-            {
-                var result = streamReader.ReadToEnd();
-            }
-
-            load();
+                    streamWriter.Write(json);
+                }
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+                }
+                ClearInput();
+                load();
+            } 
         }
 ```
 
@@ -559,7 +595,7 @@ private async void btnRemove_Click(object sender, RoutedEventArgs e)
 
 **Button "Löschen" enablen wenn ein Listenelement ausgewählt ist**
 
-Da beim Löschen eines Objekts die ID übergeben wird, muss sichergestellt werden, dass immer ein Objekt in der Liste ausgewählt ist und somit dessen ID bekannt ist. Ist das nicht der Fall, kann kein Objekt gelöscht werden und der Button wird auf disable gesetzt.
+Da beim Löschen (gleich wie beim Bearbeiten) eines Objekts die ID übergeben wird, muss sichergestellt werden, dass immer ein Objekt in der Liste ausgewählt ist und somit dessen ID bekannt ist. Ist das nicht der Fall, kann kein Objekt gelöscht werden und der Button wird auf disable gesetzt.
 ```csharp
 private void lvUsers_Click(object sender, RoutedEventArgs e)
         {
@@ -567,8 +603,8 @@ private void lvUsers_Click(object sender, RoutedEventArgs e)
             if (item != null)
             { 
                 btnRemove.IsEnabled = true;
+                btnChange.IsEnabled = true;
                 Person s = (Person)lvUsers.SelectedItems[0];
-                Trace.WriteLine(s.nachname);
             }
         }
 
@@ -577,14 +613,58 @@ private void lvUsers_SelectionChanged(object sender, SelectionChangedEventArgs e
             var item = (sender as ListView).SelectedItem;
             if (item == null)
             {
+		            btnChange.isEnabled = false;
                 btnRemove.IsEnabled = false;
             }
         }
 ```
 
-**Daten filtern**
+**Daten bearbeiten**
 
-Diese Methode funktioniert gleich wie in JavaScript - alle Felder werden überprüft und wenn sie nicht leer sind, werden sie zur URL hinzugefügt und anschließend mit einem GET-Request vom Server geladen. 
+Mit einem PUT-Request an den Server, bei dem die ID übergeben wird, wird kann ein Datensatz verändert werden. Gleich wie bei JavaScript dienen die zum Hinzufügen vorgesehenen Felder zum Bearbeiten der Werte. Wird ein Element in der Liste ausgewählt und der "Bearbeiten" Button geklickt, werden die Daten des Objekts unten in die Input-Felder eingefügt und der Button "Änderungen speichern" wird auf enable gesetzt. Wird dieser dann geklickt, wird  die Funktion btnUpdate_Click aufgerufen und der PUT-Request mit den neuen Daten an den Server geschickt.
+```csharp
+private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+			Person p = (Person)lvUsers.SelectedItems[0];
+            string data = client.GetStringAsync("http://localhost:3001/id/" + p.id).Result;
+            Person person = JsonSerializer.Deserialize<Person>(data);
+
+            if (!checkDate(txtTag.Text, txtMonat.Text, txtJahr.Text))
+            {
+                ClearInput();
+                return;
+            }
+            else
+            {
+
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:3001/update/" + p.id);
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "PUT";
+
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                {
+                    string json = JsonSerializer.Serialize(new
+                    {
+                        vorname = txtVorname.Text,
+                        nachname = txtNachname.Text,
+                        tag = txtTag.Text,
+                        monat = txtMonat.Text,
+                        jahr = txtJahr.Text
+                    });
+                    streamWriter.Write(json);
+                }
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+                }
+                load();
+            }
+        }
+```
+ **Daten filtern**
+ 
+Diese Methode funktioniert gleich wie in JavaScript - alle Felder werden überprüft und wenn sie nicht leer sind, werden sie zur URL hinzugefügt und anschließend mit einem GET-Request vom Server geladen.
 ```csharp
 private void btnFind_Click(object sender, RoutedEventArgs e)
         {
