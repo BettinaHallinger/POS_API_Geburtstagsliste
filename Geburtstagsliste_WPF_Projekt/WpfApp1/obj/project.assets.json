@@ -60,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bettina Hallinger\\Documents\\GitHub\\POS_API_Geburtstagsliste\\Geburtstagsliste_WPF_Projekt\\WpfApp1\\WpfApp1.csproj",
+      "projectUniqueName": "C:\\Users\\Bettina Hallinger\\OneDrive - HTL Saalfelden\\POS_API\\GeburtstagsAPI\\WpfApp1\\WpfApp1.csproj",
       "projectName": "WpfApp1",
-      "projectPath": "C:\\Users\\Bettina Hallinger\\Documents\\GitHub\\POS_API_Geburtstagsliste\\Geburtstagsliste_WPF_Projekt\\WpfApp1\\WpfApp1.csproj",
+      "projectPath": "C:\\Users\\Bettina Hallinger\\OneDrive - HTL Saalfelden\\POS_API\\GeburtstagsAPI\\WpfApp1\\WpfApp1.csproj",
       "packagesPath": "C:\\Users\\Bettina Hallinger\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bettina Hallinger\\Documents\\GitHub\\POS_API_Geburtstagsliste\\Geburtstagsliste_WPF_Projekt\\WpfApp1\\obj\\",
+      "outputPath": "C:\\Users\\Bettina Hallinger\\OneDrive - HTL Saalfelden\\POS_API\\GeburtstagsAPI\\WpfApp1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Bettina Hallinger\\AppData\\Roaming\\NuGet\\NuGet.Config",

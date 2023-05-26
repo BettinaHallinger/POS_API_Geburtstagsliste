@@ -41,8 +41,7 @@
                 <TextBox x:Name="txtMonat" TextWrapping="Wrap" Width="70" Margin="0, 0, 3, 3"/>
                 <TextBox x:Name="txtJahr" TextWrapping="Wrap" Width="70" Margin="0, 0, 3, 3"/>
             </StackPanel>
-            <Button x:Name="btnAdd" Content="Hinzufügen" HorizontalAlignment="Left" Margin="0, 5, 5, 0"  Click="btnAdd_Click" Width="133"/>
-            <Button x:Name="btnUpdate" Content="Änderungen speichern" HorizontalAlignment="Left" Margin="0, 5, 5, 0" IsEnabled="False" Click="btnUpdate_Click" Width="133"/>
+            <Button x:Name="btnAdd" Content="Hinzufügen" HorizontalAlignment="Left" Margin="0, 5, 5, 0"  Click="btnAdd_Click" Width="123"/>
         </StackPanel>
 
         <ListView SelectionChanged="lvUsers_SelectionChanged" PreviewMouseLeftButtonUp="lvUsers_Click" Margin="139,10,0,10" Name="lvUsers" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Grid.Column="1" Width="470">
@@ -61,10 +60,9 @@
             </ListView.View>
         </ListView>
 
-        <StackPanel Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="89" Width="Auto">
+        <StackPanel Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Height="60" Width="Auto">
             <Button x:Name="btnApi" Content="Alle laden" Click="btnApi_Click" Height="20" Margin="5" Width="123"/>
             <Button x:Name="btnRemove" Content="Löschen" Click="btnRemove_Click" IsEnabled="false" Height="20" Margin="5" Width="123"/>
-            <Button x:Name="btnChange" Content="Ändern"  Click="btnChange_Click" IsEnabled="false" Height="20" Margin="5" Width="123"/>
 
         </StackPanel>
 
@@ -89,7 +87,6 @@
             <TextBox x:Name="searchAlter" HorizontalAlignment="Left" TextWrapping="Wrap" Width="70"/>
             <Button x:Name="btnFind" Content="Suchen" HorizontalAlignment="Left" Click="btnFind_Click" Width="123" Margin="0, 5, 5, 0"/>
         </StackPanel>
-       
 
     </Grid>
 

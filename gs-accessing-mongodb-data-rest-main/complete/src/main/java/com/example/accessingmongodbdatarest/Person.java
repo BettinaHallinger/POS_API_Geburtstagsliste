@@ -5,22 +5,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 
 @Document(collection="geburtstage")
 @CrossOrigin
 public class Person {
-
 	private @Id @GeneratedValue String id;
-
 	private String vorname;
 	private String nachname;
 	private String geburtstag;
-	private String abteilung;
 	private int tag;
 	private int monat;
 	private int jahr;
-	private String alter;
+	private int alter;
 
 
 	public String getId() { return id; }
@@ -29,7 +27,7 @@ public class Person {
 
 	public String getVorname() { return vorname; }
 
-	public void setVorname(String vorname) { this.vorname = vorname; }
+	public  void setVorname(String vorname) { this.vorname = vorname; }
 
 	public String getNachname() { return nachname; }
 
@@ -38,10 +36,6 @@ public class Person {
 	public String getGeburtstag() { return geburtstag; }
 
 	public void setGeburtstag(String geburtstag) { this.geburtstag = geburtstag; }
-
-	public String getAbteilung() { return abteilung; }
-
-	public void setAbteilung(String abteilung) { this.abteilung = abteilung; }
 
 	public int getTag() { return tag; }
 
@@ -55,26 +49,7 @@ public class Person {
 
 	public void setJahr(int jahr) { this.jahr = jahr; }
 
-	public String getAlter() { return alter; }
+	public int getAlter() { return alter; }
 
-	public void setAlter(String alter) { this.alter = alter; }
-
-	//private String firstName;
-	//private String lastName;
-
-	/*public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}*/
+	public void setAlter(int alter) { this.alter = alter; }
 }
