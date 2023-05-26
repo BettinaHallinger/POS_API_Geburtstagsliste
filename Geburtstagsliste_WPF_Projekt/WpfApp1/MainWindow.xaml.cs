@@ -38,6 +38,28 @@ namespace WpfApp1
             load();
         }
 
+        public static bool checkDate(string t, string m, string j)
+        {
+            try
+            {
+                int tag = Convert.ToInt32(t);
+                int monat = Convert.ToInt32(m);
+                int jahr = Convert.ToInt32(j);
+                DateTime dateTime = DateTime.Parse(jahr + "-" + monat + "-" + tag);
+                if (jahr < 1800 || dateTime > DateTime.Now)
+                {
+                    MessageBox.Show("Bitte gültiges Datum eingeben!");
+                    return false;
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Bitte gültiges Datum eingeben!");
+                return false;
+            }
+           
+            return true;
+        }
+
         private static readonly HttpClient client = new HttpClient();
         private async void btnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -46,54 +68,50 @@ namespace WpfApp1
                 MessageBox.Show("Bitte füllen Sie alle Felder aus!");
                 return;
             }
-            try
+
+            if (!checkDate(txtTag.Text, txtMonat.Text, txtJahr.Text))
             {
-                int tag = Convert.ToInt32(txtTag.Text);
-                int monat = Convert.ToInt32(txtMonat.Text);
-                int jahr = Convert.ToInt32(txtJahr.Text);
-                DateTime dateTime = DateTime.Parse(jahr + "-" + monat + "-" + tag);
-                if (jahr < 1800 || dateTime > DateTime.Now)
-                {
-                    MessageBox.Show("Bitte gültiges Datum eingeben!");
-                    return;
-                }
-            } catch(Exception ex)
-            {
-                MessageBox.Show("Bitte gültiges Datum eingeben!");
+                ClearInput();
                 return;
             }
-
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:3001/add");
-            httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            else
             {
-                string json = JsonSerializer.Serialize(new
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:3001/add");
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "POST";
+
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                 {
-                    vorname = txtVorname.Text,
-                    nachname = txtNachname.Text,
-                    tag = txtTag.Text,
-                    monat = txtMonat.Text, 
-                    jahr = txtJahr.Text
-                });
+                    string json = JsonSerializer.Serialize(new
+                    {
+                        vorname = txtVorname.Text,
+                        nachname = txtNachname.Text,
+                        tag = txtTag.Text,
+                        monat = txtMonat.Text,
+                        jahr = txtJahr.Text
+                    });
 
-                streamWriter.Write(json);
+                    streamWriter.Write(json);
+                }
+
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+                }
+                ClearInput();
+                load();
             }
+            
+        }
 
-            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-            {
-                var result = streamReader.ReadToEnd();
-            }
-
-            load();
-
-            txtVorname.Text = "";
-            txtNachname.Text = "";
-            txtTag.Text = "";
-            txtMonat.Text = "";
-            txtJahr.Text = "";
+        public void ClearInput()
+        {
+            txtVorname.Clear();
+            txtNachname.Clear();
+            txtTag.Clear();
+            txtMonat.Clear();
+            txtJahr.Clear();
         }
 
         private async void load()
@@ -114,6 +132,7 @@ namespace WpfApp1
             if (item != null)
             { 
                 btnRemove.IsEnabled = true;
+                btnChange.IsEnabled = true;
                 Person s = (Person)lvUsers.SelectedItems[0];
                 Trace.WriteLine(s.nachname);
             }
@@ -161,35 +180,87 @@ namespace WpfApp1
 
         private async void btnRemove_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                HttpClient httpClient = new HttpClient();
 
-                Person s = (Person)lvUsers.SelectedItems[0];
-                string id = s.id;
-                string url = "http://localhost:3001/remove/" + id;
-                HttpResponseMessage response = await httpClient.DeleteAsync(url);
-                httpClient.Dispose();
-                load();
-            } catch(Exception ex)
+            HttpClient httpClient = new HttpClient();
+
+            Person s = (Person)lvUsers.SelectedItems[0];
+            string id = s.id;
+            string url = "http://localhost:3001/remove/" + id;
+            HttpResponseMessage response = await httpClient.DeleteAsync(url);
+            httpClient.Dispose();
+            load();
+
+        }
+
+        private void btnChange_Click(object sender, RoutedEventArgs e)
+        {
+
+            btnAdd.IsEnabled = false;
+            btnRemove.IsEnabled = false;
+            btnUpdate.IsEnabled = true;
+
+            HttpClient client = new HttpClient();
+            Person p = (Person)lvUsers.SelectedItems[0];
+            string data = client.GetStringAsync("http://localhost:3001/id/" + p.id).Result;
+            Person person = JsonSerializer.Deserialize<Person>(data);
+
+            txtVorname.Text = person.vorname;
+            txtNachname.Text = person.nachname;
+            txtTag.Text = person.tag.ToString();
+            txtMonat.Text = person.monat.ToString();
+            txtJahr.Text = person.jahr.ToString();
+                
+        }
+
+            private void btnUpdate_Click(object sender, RoutedEventArgs e)
             {
-                MessageBox.Show("Bitte wählen Sie ein Element aus, das sie löschen wollen!");
+            Person p = (Person)lvUsers.SelectedItems[0];
+            string data = client.GetStringAsync("http://localhost:3001/id/" + p.id).Result;
+            Person person = JsonSerializer.Deserialize<Person>(data);
+
+            if (!checkDate(txtTag.Text, txtMonat.Text, txtJahr.Text))
+            {
+                ClearInput();
+                return;
+            }
+            else
+            {
+
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:3001/update/" + p.id);
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "PUT";
+
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                {
+                    string json = JsonSerializer.Serialize(new
+                    {
+                        vorname = txtVorname.Text,
+                        nachname = txtNachname.Text,
+                        tag = txtTag.Text,
+                        monat = txtMonat.Text,
+                        jahr = txtJahr.Text
+                    });
+
+                    streamWriter.Write(json);
+                }
+
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+                }
+                load();
             }
 
+            btnChange.IsEnabled = false;
+            btnUpdate.IsEnabled = false;
+            btnAdd.IsEnabled = true;
+            ClearInput();
         }
 
-        private void TextBox_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key != System.Windows.Input.Key.Enter) return;
-            e.Handled = true;
-            Trace.WriteLine(txtVorname.Text);
-            //btnApi_Click(this, new RoutedEventArgs());
-        }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
 
-        }
+        
 
         private void lvUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -197,6 +268,7 @@ namespace WpfApp1
             if (item == null)
             {
                 btnRemove.IsEnabled = false;
+                btnChange.IsEnabled = false;
             }
         }
 
@@ -266,6 +338,10 @@ namespace WpfApp1
             appendData(list);
         }
 
+        private void TextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+
+        }
         private void txtVorname_TextChanged(object sender, KeyEventArgs e)
         {
 
@@ -293,6 +369,11 @@ namespace WpfApp1
         }
 
         private void txtVorname_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
