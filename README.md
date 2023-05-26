@@ -34,47 +34,47 @@ spring.data.mongodb.uri=mongodb+srv://user:IDszkWfqMmPNYihj@cluster0.gsuywxw.mon
 ### pom.xml
 Das Spring REST-Projekt verfügt über folgenden Dependencies:
 ```xml
-	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-rest</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>jakarta.persistence</groupId>
-			<artifactId>jakarta.persistence-api</artifactId>
-			<version>2.2.3</version>
-		</dependency>
-	</dependencies>
+<dependencies>  
+   <dependency>  
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-thymeleaf</artifactId>  
+   </dependency>  
+   <dependency>  
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-devtools</artifactId>  
+   </dependency>  
+   <dependency>  
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-actuator</artifactId>  
+   </dependency>  
+   <dependency>  
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-data-mongodb</artifactId>  
+   </dependency>  
+   <dependency>  
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-web</artifactId>  
+   </dependency>  
+   <dependency>  
+      <groupId>org.projectlombok</groupId>  
+      <artifactId>lombok</artifactId>  
+      <optional>true</optional>  
+   </dependency>  
+   <dependency>  
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-test</artifactId>  
+      <scope>test</scope>  
+   </dependency>  
+   <dependency>  
+      <groupId>org.springframework.boot</groupId>  
+      <artifactId>spring-boot-starter-data-rest</artifactId>  
+   </dependency>  
+   <dependency>  
+      <groupId>jakarta.persistence</groupId>  
+      <artifactId>jakarta.persistence-api</artifactId>  
+      <version>2.2.3</version>  
+   </dependency>  
+</dependencies>
 ```
 
 ### Person.java
@@ -94,51 +94,37 @@ public class Person {
 ```
 Die Variable geburtstag ist hier nicht zwingend notwendig, dient aber zur einfacheren und schöneren Ausgabe des Geburtsdatums  (zusammengesetzt aus tag, monat und jahr).
 
-@CrossOrigin bewirkt, dass Daten auch von anderen URLs (nicht die des Servers) ausgetauscht werden können. Dies ist vor allem für die Website notwendig.
+Da die Web-GUI direkt im Spring REST-Projekt integriert ist, müssen folgende Änderungen in der Controller-Klasse vorgenommen werden: @RestController wird durch @Controller ersetzt und alle Endpoints müssen mit @ResponseBody erweitert werden.
 
 ### PersonController.java
 ```java
-@RestController  
-@CrossOrigin  
+@Controller  
 public class PersonController {  
   
-@Autowired  
-private PersonService personService;  
-private final PersonRepository repository;  
-PersonController(PersonRepository repository){ this.repository = repository; }
+    @Autowired  
+  private PersonService personService;  
+    private final PersonRepository repository;  
+    PersonController(PersonRepository repository) {this.repository = repository;}
+```
+**Aufrufen der Web-GUI**
+
+Beim Aufruf von "localhost:3001" im Browser wird die Seite "index.html" geladen.
+```java
+@RequestMapping("/")  
+public String welcome() {  
+    return "index";  
+}
 ```
 **Eintrag in die Datenbank hinzufügen:**
 
 Hier wird eine neue Insanz der Klasse Person erstellt und zur Datenbank hinzugefügt. Tag, Monat und Jahr des Geburtstages werden hier als Integer-Werte übergeben. Nun wird direkt in der Funktion der String geburtstag aus den drei Integer zusammengesetzt (zur einfacheren und schöneren Ausgabe). Außerdem wird das Datum als LocalDate geparsed, um direkt das Alter der hinzugefügten Person zu berechnen. 
 ```java
 @PostMapping("/add")  
+@ResponseBody  
 Person newPerson(@RequestBody Person newPerson) {  
     try{  
-        int d = newPerson.getTag();  
-        int m = newPerson.getMonat();  
-        int y = newPerson.getJahr();  
-        newPerson.setGeburtstag(d + "." + m + "." + y);  
-        System.out.println("G: "+ newPerson.getGeburtstag());  
-        String toParse = y + "-" + m + "-" + d;  
-        if(m<10){  
-            newPerson.setGeburtstag(d + ".0" + m + "." + y);  
-            toParse = y + "-0" + m + "-" + d;  
-            System.out.println("ST day " + toParse);  
-        }  
-        if(d<10){  
-            String s = "0" + newPerson.getGeburtstag();  
-            toParse = toParse.substring(0, toParse.length() - 1);  
-            toParse += "0" + d;  
-            newPerson.setGeburtstag(s);  
-        }  
-        String geb = newPerson.getJahr() + "-" + newPerson.getMonat() + "-" + newPerson.getTag();  
-  
-        // Calculate age  
-		LocalDate now = LocalDate.now();  
-        LocalDate then = LocalDate.parse(toParse);  
-        Period period = then.until(now);  
-        int yearsBetween = period.getYears();    
-        newPerson.setAlter(yearsBetween);  
+        newPerson.setGeburtstag(calculateBirtday(newPerson.getTag(), newPerson.getMonat(), newPerson.getJahr()));  
+        newPerson.setAlter(calculateAge(newPerson.getTag(), newPerson.getMonat(), newPerson.getJahr()));  
   
     }catch(Exception e){  
         System.out.println(e.getMessage());  
@@ -157,9 +143,10 @@ public @ResponseBody Iterable<Person> getAll() {
 ```
 **Suche nach beliebigen Parametern:**
 
-Hier kann man Datenbankeinträge nach beliebigen Parametern filtern. Die Schwierigkeit hierbei war, dass man keine "findBy...()" Funktion verwenden konnte, wobei nach den mitgegebenen Parameter gesucht wird, da man hier nur nach einem Parameter suchen kann. Bei diesem Projekt würde die Suche nach einem einzelnen Parameter wenig Sinn machen, da man sich z.B. alle Personen anzeigen lassen will, die in einem bestimmten Monat in einem bestimmten Jahr Geburtstag haben. Deshalb war es notwendig, ein Query zu erstellen, wobei alle Parameter optional mitgegeben werden können. Dieser Teil des Projekts zwar sehr zeitaufwändig. Die Funktion find() ist mit sämtlichen anderen Klassen verbunden, die später noch erklärt werden.
+Hier kann man Datenbankeinträge nach beliebigen Parametern filtern. Die Schwierigkeit hierbei war, dass man keine "findBy...()" Funktionen verwenden kann, wo nach den mitgegebenen Parameter gesucht wird, da man bei diesen nur nach einem Parameter suchen kann. Bei diesem Projekt würde die Suche nach einem einzelnen Parameter wenig Sinn machen, da man sich z.B. alle Personen anzeigen lassen will, die in einem bestimmten Monat in einem bestimmten Jahr Geburtstag haben. Deshalb war es notwendig, ein Query zu erstellen, bei welcher alle Parameter optional mitgegeben werden können. Dieser Teil des Projekts zwar sehr zeitaufwändig. Die Funktion find() ist mit sämtlichen anderen Klassen verbunden, die später noch erklärt werden.
 ```java
 @RequestMapping("/find")  
+@ResponseBody
 public List<Person> find(@RequestParam("vorname") Optional<String> vorname,  
                                     @RequestParam("nachname") Optional<String> nachname,  
                                     @RequestParam("tag") Optional<Integer> tag,  
@@ -169,11 +156,22 @@ public List<Person> find(@RequestParam("vorname") Optional<String> vorname,
     return personService.find(vorname, nachname, tag, monat, jahr, alter);  
 }
 ```
+**Objekt nach ID suchen**
+
+Ein Objekt kann nach der ID gesucht werden, dies ist für die Update-Funktion notwendig (siehe JavaScript - Daten bearbeiten).
+```java
+@GetMapping("/id/{id}")  
+@ResponseBody  
+Optional<Person> one(@PathVariable String id) {  
+    return repository.findById(id);  
+}
+```
 **Eintrag löschen:**
 
 Ein Einträg kann gelöscht werden, indem die ID des Objekts mitgegeben wird. 
 ```java
 @DeleteMapping("/remove/{id}")  
+@ResponseBody
 void deletePerson(@PathVariable String id) {  
     repository.deleteById(id);  
 }
@@ -181,7 +179,7 @@ void deletePerson(@PathVariable String id) {
 
 ### PersonRepository.java (Interface)
 In dieser Klasse befindet sich lediglich das zuvor erwähnte Query, das nach den optionalen Parametern in der Datenbank sucht.
-De query konvertiert oafoch olle Integer werte fia jahr, monat und tag zu string und duad donn mid ana regex (de wos im @RequestParam onegbn wird) suachn.
+Die Query konvertiert alle Integer Werte für Tag, Monat und Jahr zu Strings und sucht anschließend mit einer Regex, welche im @RequestParam angegebn wird, nach diesen Werten.
 ```java 
 @CrossOrigin  
 @RepositoryRestResource(collectionResourceRel = "geburtstage", path = "geburtstage")  
