@@ -10,11 +10,11 @@ Der genaue Aufbau des Projekts sowie Probleme und Lösungswege werden in der fol
 ## Verteilungsdiagramm
 ![alt Verteilungsdiagramm](https://raw.githubusercontent.com/BettinaHallinger/POS_API_Geburtstagsliste/main/images/diagramm1.png?token=GHSAT0AAAAAACBJUE6QKYCYRZ2TH4ILJ6KMZDQJFGA)
 ## Klassendiagramm Spring REST-Server
-![alt Klassendiagramm]()
+![alt Klassendiagramm](https://github.com/BettinaHallinger/POS_API_Geburtstagsliste/blob/main/images/klassendiagramm.png?raw=true)
 # Spring REST API
 Das Backend besteht aus einem Spring REST-Server, welcher die Verbindung zur MongoDB Atlas Datenbank herstellt. 
 Das Projekt besteht aus folgelnden Dateien:
-![Projekt-Dateistruktur](https://lh3.googleusercontent.com/cnwCwtx6X1ZQAKeLG017Q2VwiPP6oCVWvwr7o3T95OH3jmESVPtAC5hTnNjktRVkIK5Gdt9c5fuGa5XTQpI6o5fx5z_40cD87ebOaZqMDGJ8vtFL7RtUopbSo0UaEzJH5roA7NqvaUow04JjYLQONBnyj7uf6s9wMeAOy1QrGgRbF5ktswBCizpZYNTnTotGJsC97Q1OsgWnEEHX4bKJ018yNXf2hJEuAhxY1Vg_4SX-G69R8UpnZEZQD6JDOweZtShlvHT8WGo3cDhB2fQyvYF1dS-rRnPiR3_lsekLicbEX96IrSWSIVG5776eVBkZAQeiBN5TPGKkqzu2ri_eKeibyQgBfSaVVSBeXnoljnbynWgmUG8qfEEJ1sToAWaxydat22y0cApr0iV0FJPjKNMD_DjN3LiC3H1SV6cLXgBeEeldcboPjPZfOS4eObR6Oq3e1mJaB0dRoueg5-nKYCCkgzzOBDr7pTi2Ybzo4cbMDkeT1xzVNyqjRi8z5Hv-9zPIk4OG4HDlVafuZrgkdCP9HJ9ki2bgw7sZmwo2JkXBMbVl2DTaIdMZfydofFxC8OsPW5d26ZUnK9tavvqpaudRPjIbgaLVTgSfTYGGZKp0iATRHRdYbn09kWlc5PTYSPRVpzt_VkEhFnf8Ddbo0o7oCu_PyfqCMwd7dZM9i-s1CjDTSUxqB_1J6kaAQ7RiyH8Glg8JvDbGfTDRjHKrx_ImJb3cOtHyAYmskI_3lX9Me89ZeuPQDL6GiF3qFal2FDph47lyl9USaOf-snRMDdvylDLQfQuOLE8en1jc4MVJUzR7x0ISBRu8e1M17f9ZbwCJEXc_ur2Bnir-GXGI16wol36RWEHDmrNqsa1aWwWmo78CIKgTi49hhaDrD02H0A1zBVFnigGlR6zmcFdBT1Wz2J4E0WhEq6-8txeRTDke=w532-h369-s-no?authuser=0)
+![Projekt-Dateistruktur](https://github.com/BettinaHallinger/POS_API_Geburtstagsliste/blob/main/images/ordnerstruktur.png?raw=true)
 Die HTML-Page ist direkt in das Spring REST-Projekt integriert. Sie kann nach Starten des Servers mit "localhost:3001" im Browser aufgerufen werden.
 
 ## Verbindung zur Datenbank
@@ -226,7 +226,7 @@ public class PersonServiceImpl implements PersonService {
 ```
 
 # GUI mit HTML/CSS und JavaScript
-![](https://lh3.googleusercontent.com/u25H0jExUntGLxRs68HZCNfu3W99AqpUZOS7Ns2wmoDe3SgqI-qPJNDLzBH6cvOi_NGh9OmPSJZmCb2jUGYc2a6X9eD9uuoo15qp9-IDihxSDaLSR4ICWicAtDZYP9fC_qRpAwWtKOz8VHzZgjgN7CZXjnoluxKjxGhjog6Vtf8WHW6fMK-KHwn1tBCsnPcScmnlmQrwcEhh0_x0Z8tFhY2W1-DCNVteCurzrffRIo5gH_F6E5v3VEvlSAObtjPwzuulIxSCa1qc7nULdZCbS5uePIKAOy1Hf8MHjEfKlH3Ykp7h60caBcqIphdnnFh-kHH_CymD5KBr3MIsrFaNbuEi2Vy0ZiWc_Ii8pD6iXkCy76v8ZMUYnLGU0dypvGqn701r_-Wiq318JqDlQ_wUMDSe4C0DbASUc0FoLN7TtKr0bpCeehhJT5_MpXaYg0A2CIS9E3sSWRMQZF9xAYByJ0OMa6-4jSUZTcQT7brqwRuN7a7GrU7RDIMBL-dJpbMZsjosGXGhOYokNGA-QPywocU35M3MkJV2XpU9lCQU2-WMGnHMV5_bPeGHF1TPM7iHKjlWZu1yFnF-UI02Y9JRjryQujAVtbwcQAF8_UNVOQXtPsbA6b5A82Ksc0Rb5n8Fm7LSnk0r-wrhzTOEsDsjwnsKMbZ04Cno2RKIRunp4ob78tSV7Ll8lD-afrjiebjts92qXzbFH6O4RWkbFPIS24qrbefX5aC6m34PBUHupJW3EDZ0DcJPXkJqZN1Ncb7TSR43CfRIT7T_-BvF2Pp6_qSbKy5RpHIurClLJyFRX82zMbiKkmnpN4Rw_L68G3IdAFB1_fhGPVN-e-pmhQsG1e3B5rflkYEQAjAV-U3wqFAQcRaT5zwnWPz_kUnDaZRYdPDAdFzUUvUtj_O37PLVEDWB2ZTRgSD9UM4aKwsTRuxi=w2256-h1263-s-no?authuser=0)
+![](https://github.com/BettinaHallinger/POS_API_Geburtstagsliste/blob/main/images/frontend.png?raw=true)
 Das Graphical User Interface der API besteht aus einer HTML-Website, die mit CSS gestylt wird. Auf die Daten wird mit JavaScript durch fetch() auf dem REST-Server zugegriffen. 
 
 ## HTML
@@ -473,7 +473,7 @@ fetch((url), {
 Als zweiter Client wurde eine WPF-App mit C# implementiert. Diese bietet dieselben Funktionen wie die HTML-Seite (Daten anzeigen, hinzufügen, löschen und filtern). Es gibt eine Main-Datei und eine Klasse Person. Die Instanzen dieser Klasse werden in der Tabelle angezeigt.
 
 Das MainWindow besteht aus einer GridView mit zwei Zeilen und drei Spalten. Zum Anzeigen der Daten dient eine ListView. 
-![](https://lh3.googleusercontent.com/wyRVLSOpVjouIkmFMfCZxwHvJPwnS5p0Y4vuTuM35e8zPz6_lbfYnVnpJsqrcQtKdRiUwAmV4oKPySEYqHEXzhUMtSGay38F11RFmZ72YeD1sTmsH72tAUFWoWdRuEtU2ZyYFV5fIiVo5OvFWD0isumMWIKPo2XqhuTswr8BgsVKm7wb-J4hKn78qf3SaLq9MMXeqJr1A7RSGn-AIWM4A423gs3fMfQJKuum21lzVghMZX0otHhpt5rvMThTSdf6YUZrpVxJ5cbh72sJ2O5V_tRZcj8lodszHVP-Ia2SDetqVzrXlUrNJhJajh_cY7NR32gmuEcFc04zsTqtS6BaW1cjdiT_6ZERhHWeJj0tdC9yua6A6XYRSDs7EyR-1dQXQTHlhXZLrbJ6lswJNIMFcdSbqzaKpwxHKK3RAQPeRwaevRmX2td5CW9xwRxvLwYGF_HQ4t2yYpNd1cHFwO_S_rs21Uo754tcpP0S9bs_wYvw5WmZgOkRr8bTrmmkaD2mdXJn2gsULaFOFYKSFUz9Qm7UjoI8u6SbjqrONwVVxPDkL2JjP7OwPIiwfcdyvRLJsRijwof2mCT8AdBT9IUU8dabA2YRdm-3vXNxnSoDNkXvR9g_JmXNfI_yHg9b8oIgN_Tg5HAjPR6U-5Y9wgYC2zBbd6RC0UK8f5f5oton4zu2Svga0CJnguoLL9sfzKRGhkZSljYOT_fwZeBk7WyokCPJpVyOkE3moe3a7ExgoJ5ieopjoHvG1z4B1GR-_6jDzsLsJCcc92sKI9siymnDzEG3efA-XrC6o7rW-_l54fKnijz5V6Ys8YXahFD7t7Q19-Mu8K-ApgnvYGJb0wocdvuNHakkNaMD0y1UCE2cPNpHCCAsPS3Tg-eYq659uCB83CZGTVzydOCV_OF7RnJELTitoATpKdy_KxQ8skvhpkYp=w1336-h837-s-no?authuser=0)
+![](https://github.com/BettinaHallinger/POS_API_Geburtstagsliste/blob/main/images/wpf-frontend.png?raw=true)
 
 **Daten laden**
 
