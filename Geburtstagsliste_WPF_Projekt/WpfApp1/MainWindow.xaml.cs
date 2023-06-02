@@ -36,6 +36,7 @@ namespace WpfApp1
         {
             InitializeComponent();
             load();
+            //window.Background = Brushes.Green;
         }
 
         private static readonly HttpClient client = new HttpClient();
@@ -89,11 +90,7 @@ namespace WpfApp1
 
             load();
 
-            txtVorname.Text = "";
-            txtNachname.Text = "";
-            txtTag.Text = "";
-            txtMonat.Text = "";
-            txtJahr.Text = "";
+            ClearInput();
         }
 
         private async void load()
@@ -114,12 +111,39 @@ namespace WpfApp1
             if (item != null)
             { 
                 btnRemove.IsEnabled = true;
+                btnChange.IsEnabled = true;
+                btnUpdate.IsEnabled = true;
                 Person s = (Person)lvUsers.SelectedItems[0];
                 Trace.WriteLine(s.nachname);
             }
         }
 
-        
+        public bool checkInput(string t, string m, string j)
+        {
+            if (string.IsNullOrEmpty(txtVorname.Text) || string.IsNullOrEmpty(txtNachname.Text) || string.IsNullOrEmpty(txtTag.Text) || string.IsNullOrEmpty(txtMonat.Text) || string.IsNullOrEmpty(txtJahr.Text))
+            {
+                MessageBox.Show("Bitte füllen Sie alle Felder aus!");
+                return false;
+            }
+            try
+            {
+                int tag = Convert.ToInt32(txtTag.Text);
+                int monat = Convert.ToInt32(txtMonat.Text);
+                int jahr = Convert.ToInt32(txtJahr.Text);
+                DateTime dateTime = DateTime.Parse(jahr + "-" + monat + "-" + tag);
+                if (jahr < 1800 || dateTime > DateTime.Now)
+                {
+                    MessageBox.Show("Bitte gültiges Datum eingeben!");
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Bitte gültiges Datum eingeben!");
+                return false;
+            }
+            return true;
+        }
 
 
         private void txtName_KeyUp(object sender, KeyEventArgs e)
@@ -197,6 +221,8 @@ namespace WpfApp1
             if (item == null)
             {
                 btnRemove.IsEnabled = false;
+                btnUpdate.IsEnabled = false;
+                btnChange.IsEnabled = false;
             }
         }
 
@@ -266,6 +292,70 @@ namespace WpfApp1
             appendData(list);
         }
 
+        private void btnChange_Click(object sender, RoutedEventArgs e)
+        {
+            Person person = (Person)lvUsers.SelectedItems[0];
+            string data = client.GetStringAsync("http://localhost:3001/id/" + person.id).Result;
+            Person p = JsonSerializer.Deserialize<Person>(data);
+
+            
+            txtVorname.Text = p.vorname;
+            txtNachname.Text = p.nachname;
+            Trace.WriteLine(p.tag.ToString(), p.geburtstag);
+            txtTag.Text = p.tag.ToString();
+            txtMonat.Text = p.monat.ToString();
+            txtJahr.Text = p.jahr.ToString();
+        }
+
+        public void ClearInput()
+        {
+            txtVorname.Text = "";
+            txtNachname.Text = "";
+            txtTag.Text = "";
+            txtMonat.Text = "";
+            txtJahr.Text = "";
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            Person p = (Person)lvUsers.SelectedItems[0];
+            string data = client.GetStringAsync("http://localhost:3001/id/" + p.id).Result;
+            Person person = JsonSerializer.Deserialize<Person>(data);
+
+            if (!checkInput(txtTag.Text, txtMonat.Text, txtJahr.Text))
+            {
+                ClearInput();
+                return;
+            }
+            else
+            {
+
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:3001/update/" + p.id);
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "PUT";
+
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                {
+                    string json = JsonSerializer.Serialize(new
+                    {
+                        vorname = txtVorname.Text,
+                        nachname = txtNachname.Text,
+                        tag = txtTag.Text,
+                        monat = txtMonat.Text,
+                        jahr = txtJahr.Text
+                    });
+                    streamWriter.Write(json);
+                }
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+                }
+                load();
+                ClearInput();
+            }
+        }
+
         private void txtVorname_TextChanged(object sender, KeyEventArgs e)
         {
 
@@ -296,5 +386,7 @@ namespace WpfApp1
         {
 
         }
+
+        
     }
 }
