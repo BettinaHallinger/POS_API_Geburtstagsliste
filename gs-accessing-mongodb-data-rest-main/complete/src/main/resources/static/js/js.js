@@ -14,6 +14,19 @@ function load() {
     });
 }
 
+function handleEnter(event) {
+  if (event.key === "Enter") {
+    if(document.getElementById("btnChange").textContent==="Hinzufügen") addPerson();
+    else if(document.getElementById("btnChange").textContent==="Ändern") updatePerson()
+  }
+}
+
+function handleFilter(event) {
+  if (event.key === "Enter") {
+    find();
+  }
+}
+
 function appendData(data) {
   var mainContainer = document.getElementById("tbl");
   let text =
@@ -22,13 +35,13 @@ function appendData(data) {
     text += "<tr><td>" + data[i].vorname + "</td>";
     text += "<td>" + data[i].nachname + "</td>";
     text += "<td>" + data[i].geburtstag + "</td>";
-    text += "<td>" + data[i].alter + "</td>";
+    text += "<td style=\"width:auto\">" + data[i].alter + "</td>";
     text +=
-      '<td><button class="bttnrm" onclick="deletePerson(\'' +
+      '<td style="width:auto"><button class="bttnrm" onclick="deletePerson(\'' +
       data[i].id +
       '\')"><img class="imgrm" src="/images/delete.svg"></button></td>';
     text +=
-      '<td><button class="bttnrm" onclick="editPerson(\'' +
+      '<td style="width:auto"><button class="bttnrm" onclick="editPerson(\'' +
       data[i].id +
       '\')"><img class="imgrm" src="/images/edit.svg"></button></td></tr>';
   }
@@ -64,13 +77,13 @@ function editPerson(id) {
       document.getElementById("h3Change").innerHTML = "Geburtstag bearbeiten";
       document.getElementById("btnChange").innerHTML = "";
       document.getElementById("btnChange").innerHTML =
-        '<button class="b1" id="addP" type="button" onclick="updatePerson(\'' +
-        id +
-        '\')" style="background:linear-gradient(70deg, #00b3ff, #bc03ff)"><b>Ändern</b></button>';
+        '<button class="b1" id="addP" type="button" onclick="updatePerson()" style="background:linear-gradient(70deg, #00b3ff, #bc03ff)"><b>Ändern</b></button>';
     });
+  sessionStorage.setItem("id", id);
 }
 
-function updatePerson(id) {
+function updatePerson() {
+  let id = sessionStorage.getItem("id");
   let vorname = document.getElementById("vorname").value;
   let nachname = document.getElementById("nachname").value;
   let tag = document.getElementById("tag").value;
@@ -236,4 +249,5 @@ function find() {
   document.getElementById("findTag").value = "";
   document.getElementById("findMonat").value = "";
   document.getElementById("findJahr").value = "";
+  document.getElementById("findAlter").value = "";
 }

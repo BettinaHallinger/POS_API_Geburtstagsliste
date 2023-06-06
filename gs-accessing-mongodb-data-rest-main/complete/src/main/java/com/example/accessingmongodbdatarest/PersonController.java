@@ -72,11 +72,26 @@ public class PersonController {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
+        List<Person> list = repository.findAll();
+        for(Person p : list){
+            if(p.getGeburtstag()== newPerson.getGeburtstag() && p.getVorname()==newPerson.getVorname() && p.getNachname()==newPerson.getNachname()){
+                System.out.println("Datensatz schon vorhanden");
+                return null;
+            }
+        }
         return repository.save(newPerson);
     }
 
     @GetMapping(path="/geburtstage")
     public @ResponseBody Iterable<Person> getAll() {
+        List<Person> list = repository.findAll();
+        for(Person p : list){
+            int age = calculateAge(p.getTag(), p.getMonat(), p.getJahr());
+            if(age!=p.getAlter()){
+                p.setAlter(age);
+                update(p, p.getId());
+            }
+        }
         return repository.findAll();
     }
 

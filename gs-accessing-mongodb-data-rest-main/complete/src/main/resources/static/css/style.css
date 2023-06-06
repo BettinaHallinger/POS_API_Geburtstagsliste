@@ -84,7 +84,6 @@ input{
 
 }
 
-
 .b1:hover{
     cursor: pointer;
     background: linear-gradient(70deg, #66008b, #bc03ff);
@@ -199,18 +198,13 @@ th{
     }
 
     th{
-        min-width: 110px;
+        max-width: 110px;
     }
 
     h1{
         font-size: 300%;
     }
 
-    #tbl{
-        margin: 2em 0 0 0;
-    }
 
-    .imgrm{
-        width: 100%;
-    }
+
 }

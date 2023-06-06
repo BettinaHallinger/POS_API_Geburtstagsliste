@@ -56,8 +56,8 @@ public class AccessingMongodbDataRestApplicationTests {
 	@Test
 	public void shouldCreateEntity() throws Exception {
 
-		mockMvc.perform(post("/people").content(
-				"{\"firstName\": \"Frodo\", \"lastName\":\"Baggins\"}")).andExpect(
+		mockMvc.perform(post("/add").content(
+				"{\"vorname\": \"Max\", \"nachname\":\"Mustermann\", \"tag\":\"1, \"monat\":\"1, \"jahr\":\"2000}")).andExpect(
 						status().isCreated()).andExpect(
 								header().string("Location", containsString("people/")));
 	}

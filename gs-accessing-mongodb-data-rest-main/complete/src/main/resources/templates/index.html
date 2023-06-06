@@ -28,16 +28,16 @@
                 </div>
 
                 <label class="lbl">Vorname:</label>
-                <input type="text" name="vorname" class="big" id="vorname" placeholder="Vorname">
+                <input type="text" name="vorname" class="big" id="vorname" placeholder="Vorname"  onkeypress="handleEnter(event)">
 
                 <label class="lbl">Nachname:</label>
-                <input type="text" name="nachname" class="big" id="nachname" placeholder="Nachname">
+                <input type="text" name="nachname" class="big" id="nachname" placeholder="Nachname"  onkeypress="handleEnter(event)">
 
                 <label class="lbl">Geburtstag:</label>
                 <div class="num">
-                    <input type="text" name="tag" id="tag" placeholder="Tag" class="numInput">
-                    <input type="text" name="monat" id="monat" placeholder="Monat" class="numInput">
-                    <input type="text" name="jahr" id="jahr" placeholder="Jahr" class="numInput">
+                    <input type="text" name="tag" id="tag" placeholder="Tag" class="numInput"  onkeypress="handleEnter(event)">
+                    <input type="text" name="monat" id="monat" placeholder="Monat" class="numInput"  onkeypress="handleEnter(event)">
+                    <input type="text" name="jahr" id="jahr" placeholder="Jahr" class="numInput" onkeypress="handleEnter(event)">
                 </div>
                 <div class="buttons" id="btnChange">
                     <button class="b1" id="addP" type="button" onclick="addPerson()"><b>Hinzufügen</b></button>
@@ -52,20 +52,20 @@
                 </div>
 
                 <label class="lbl">Vorname:</label>
-                <input type="text" name="vorname" class="big" id="findVorname" placeholder="Vorname">
+                <input type="text" name="vorname" class="big" id="findVorname" placeholder="Vorname" onkeypress="handleFilter(event)">
 
                 <label class="lbl">Nachname:</label>
-                <input type="text" name="nachname" class="big" id="findNachname" placeholder="Nachname">
+                <input type="text" name="nachname" class="big" id="findNachname" placeholder="Nachname" onkeypress="handleFilter(event)">
 
                 <label class="lbl">Geburtstag:</label>
                 <div class="num">
-                    <input type="text" name="tag" id="findTag" placeholder="Tag" class="numInput">
-                    <input type="text" name="monat" id="findMonat" placeholder="Monat" class="numInput">
-                    <input type="text" name="jahr" id="findJahr" placeholder="Jahr" class="numInput">
+                    <input type="text" name="tag" id="findTag" placeholder="Tag" class="numInput" onkeypress="handleFilter(event)">
+                    <input type="text" name="monat" id="findMonat" placeholder="Monat" class="numInput" onkeypress="handleFilter(event)">
+                    <input type="text" name="jahr" id="findJahr" placeholder="Jahr" class="numInput" onkeypress="handleFilter(event)">
                 </div>
 
                 <label class="lbl">Alter:</label>
-                <input type="text" name="alter" class="big" id="findAlter" placeholder="25">
+                <input type="text" name="alter" class="big" id="findAlter" placeholder="25" onkeypress="handleFilter(event)">
 
                 <div class="buttons">
                     <button class="b1"  type="button" onclick="find()"><b>Suchen</b></button>
