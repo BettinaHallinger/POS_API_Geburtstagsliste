@@ -8,7 +8,8 @@ Der genaue Aufbau des Projekts sowie Probleme und Lösungswege werden in der fol
  
 # Diagramme
 ## Verteilungsdiagramm
-![alt Verteilungsdiagramm](https://raw.githubusercontent.com/BettinaHallinger/POS_API_Geburtstagsliste/main/images/diagramm1.png?token=GHSAT0AAAAAACBJUE6QKYCYRZ2TH4ILJ6KMZDQJFGA)
+![alt Verteilungsdiagramm](https://github.com/BettinaHallinger/POS_API_Geburtstagsliste/blob/main/images/diagramm1.png?raw=true)
+
 ## Klassendiagramm Spring REST-Server
 ![alt Klassendiagramm](https://github.com/BettinaHallinger/POS_API_Geburtstagsliste/blob/main/images/klassendiagramm.png?raw=true)
 # Spring REST API
