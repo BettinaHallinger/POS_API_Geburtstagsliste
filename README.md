@@ -478,7 +478,6 @@ Als zweiter Client wurde eine WPF-App mit C# implementiert. Diese bietet dieselb
 
 Das MainWindow besteht aus einer GridView mit zwei Zeilen und drei Spalten. Zum Anzeigen der Daten dient eine ListView. 
 ![](https://github.com/BettinaHallinger/POS_API_Geburtstagsliste/blob/main/images/wpf-frontend.png?raw=true)
-
 **Daten laden**
 
 Hier werden die Daten mit einem GET-Request vom Server geholt, direkt in ein Objekt der Klasse Person geparsed und zur ListView hinzugefügt. 
