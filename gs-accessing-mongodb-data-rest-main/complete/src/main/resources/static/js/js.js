@@ -90,32 +90,41 @@ function updatePerson() {
   let monat = document.getElementById("monat").value;
   let jahr = document.getElementById("jahr").value;
 
-  async function put(url = "", data = {}) {
-    const response = await fetch(url, {
-      method: "PUT",
-      mode: "cors",
-      cache: "no-cache",
-      credentials: "same-origin",
-      Allow: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      redirect: "follow",
-      referrerPolicy: "no-referrer",
-      body: JSON.stringify(data),
-    });
-    return response.json();
+  if(vorname=="" || nachname=="" || tag=="" || monat=="" || jahr==""){
+    alert("Bitte alle Felder ausfüllen!")
   }
+  else if (!isValidDate(jahr + "-" + monat + "-" + tag)) {
+    alert("Bitte gültiges Datum eingeben!");
+  }
+  else {
 
-  put("http://localhost:3001/update/" + id, {
-    vorname: vorname,
-    nachname: nachname,
-    tag: tag,
-    monat: monat,
-    jahr: jahr,
-  }).then((data) => {
-    console.log(data);
-  });
+    async function put(url = "", data = {}) {
+      const response = await fetch(url, {
+        method: "PUT",
+        mode: "cors",
+        cache: "no-cache",
+        credentials: "same-origin",
+        Allow: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        redirect: "follow",
+        referrerPolicy: "no-referrer",
+        body: JSON.stringify(data),
+      });
+      return response.json();
+    }
+
+    put("http://localhost:3001/update/" + id, {
+      vorname: vorname,
+      nachname: nachname,
+      tag: tag,
+      monat: monat,
+      jahr: jahr,
+    }).then((data) => {
+      console.log(data);
+    });
+  }
 
   clearTextInput1();
   document.getElementById("btnChange").innerHTML = "";
@@ -137,7 +146,10 @@ function addPerson() {
   let monat = document.getElementById("monat").value;
   let jahr = document.getElementById("jahr").value;
 
-  if (!isValidDate(jahr + "-" + monat + "-" + tag)) {
+  if(vorname=="" || nachname=="" || tag=="" || monat=="" || jahr==""){
+    alert("Bitte alle Felder ausfüllen!")
+  }
+  else if (!isValidDate(jahr + "-" + monat + "-" + tag)) {
     alert("Bitte gültiges Datum eingeben!");
   } else {
     async function postData(url = "", data = {}) {
