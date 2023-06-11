@@ -14,8 +14,11 @@ Der genaue Aufbau des Projekts sowie Probleme und Lösungswege werden in der fol
 # Spring REST API
 Das Backend besteht aus einem Spring REST-Server, welcher die Verbindung zur MongoDB Atlas Datenbank herstellt. 
 Das Projekt besteht aus folgelnden Dateien:
+
 ![Projekt-Dateistruktur](https://github.com/BettinaHallinger/POS_API_Geburtstagsliste/blob/main/images/ordnerstruktur.png?raw=true)
+
 Die HTML-Page ist direkt in das Spring REST-Projekt integriert. Sie kann nach Starten des Servers mit "localhost:3001" im Browser aufgerufen werden.
+Mit "localhost:3001/actuator/health" kann überprüft werden, ob der Server läuft.
 
 ## Verbindung zur Datenbank
 ### MongoDB Atlas
