@@ -113,3 +113,4 @@ C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\Geburtstagsliste_WP
 C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\Geburtstagsliste_WPF_Projekt\WpfApp1\obj\Debug\net6.0-windows\WpfApp1.pdb
 C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\Geburtstagsliste_WPF_Projekt\WpfApp1\obj\Debug\net6.0-windows\WpfApp1.genruntimeconfig.cache
 C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\Geburtstagsliste_WPF_Projekt\WpfApp1\obj\Debug\net6.0-windows\ref\WpfApp1.dll
+C:\Users\Bettina Hallinger\OneDrive - HTL Saalfelden\POS_API\Geburtstagsliste_WPF_Projekt\WpfApp1\obj\Debug\net6.0-windows\App.baml

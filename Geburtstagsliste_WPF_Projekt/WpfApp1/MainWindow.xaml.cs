@@ -36,59 +36,46 @@ namespace WpfApp1
         {
             InitializeComponent();
             load();
-            //window.Background = Brushes.Green;
+            //window.Background = Brushes.Gray;
         }
 
         private static readonly HttpClient client = new HttpClient();
         private async void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if(string.IsNullOrEmpty(txtVorname.Text) || string.IsNullOrEmpty(txtNachname.Text) || string.IsNullOrEmpty(txtTag.Text) || string.IsNullOrEmpty(txtMonat.Text) || string.IsNullOrEmpty(txtJahr.Text))
+            if (!checkInput(txtTag.Text, txtMonat.Text, txtJahr.Text))
             {
-                MessageBox.Show("Bitte füllen Sie alle Felder aus!");
+                ClearInput();
                 return;
             }
-            try
+            else
             {
-                int tag = Convert.ToInt32(txtTag.Text);
-                int monat = Convert.ToInt32(txtMonat.Text);
-                int jahr = Convert.ToInt32(txtJahr.Text);
-                DateTime dateTime = DateTime.Parse(jahr + "-" + monat + "-" + tag);
-                if (jahr < 1800 || dateTime > DateTime.Now)
+
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:3001/add");
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "POST";
+
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                 {
-                    MessageBox.Show("Bitte gültiges Datum eingeben!");
-                    return;
+                    string json = JsonSerializer.Serialize(new
+                    {
+                        vorname = txtVorname.Text,
+                        nachname = txtNachname.Text,
+                        tag = txtTag.Text,
+                        monat = txtMonat.Text,
+                        jahr = txtJahr.Text
+                    });
+
+                    streamWriter.Write(json);
                 }
-            } catch(Exception ex)
-            {
-                MessageBox.Show("Bitte gültiges Datum eingeben!");
-                return;
-            }
 
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:3001/add");
-            httpWebRequest.ContentType = "application/json";
-            httpWebRequest.Method = "POST";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-            {
-                string json = JsonSerializer.Serialize(new
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
-                    vorname = txtVorname.Text,
-                    nachname = txtNachname.Text,
-                    tag = txtTag.Text,
-                    monat = txtMonat.Text, 
-                    jahr = txtJahr.Text
-                });
+                    var result = streamReader.ReadToEnd();
+                }
 
-                streamWriter.Write(json);
+                load();
             }
-
-            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-            {
-                var result = streamReader.ReadToEnd();
-            }
-
-            load();
 
             ClearInput();
         }
